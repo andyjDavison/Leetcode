@@ -20,37 +20,38 @@ Time Complexity: O(max(N, M)) where N is the length of l1 and M is the length of
 
 ## Code
 #### C++
-    /**
-    * Definition for singly-linked list.
-    * struct ListNode {
-    *     int val;
-    *     ListNode *next;
-    *     ListNode() : val(0), next(nullptr) {}
-    *     ListNode(int x) : val(x), next(nullptr) {}
-    *     ListNode(int x, ListNode *next) : val(x), next(next) {}
-    * };
-    */
-    class Solution {
-    public:
-        ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-            ListNode *ans = new ListNode(0);
-            ListNode *curr = ans;
-            int carry = 0;
-            while(l1 != NULL || l2 != NULL || carry == 1) {
-                int sum = 0;
-                if(l1 != NULL) { // add l1 to the sum and move to next node
-                    sum += l1->val;
-                    l1 = l1->next;
-                }
-                if(l2 != NULL) { // add l2 to the sum and move to next node
-                    sum += l2->val;
-                    l2 = l2->next;
-                }
-                sum += carry; // if we have a carry we have to add it
-                carry = sum/10; // if we get carry, divide by 10 to get it
-                curr->next = new ListNode(sum % 10); // the value to add to our list will be the sum % 10
-                curr = curr->next; // move to the next node
+```c++
+/**
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     ListNode *next;
+*     ListNode() : val(0), next(nullptr) {}
+*     ListNode(int x) : val(x), next(nullptr) {}
+*     ListNode(int x, ListNode *next) : val(x), next(next) {}
+* };
+*/
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode *ans = new ListNode(0);
+        ListNode *curr = ans;
+        int carry = 0;
+        while(l1 != NULL || l2 != NULL || carry == 1) {
+            int sum = 0;
+            if(l1 != NULL) { // add l1 to the sum and move to next node
+                sum += l1->val;
+                l1 = l1->next;
             }
-            return ans->next;
+            if(l2 != NULL) { // add l2 to the sum and move to next node
+                sum += l2->val;
+                l2 = l2->next;
+            }
+            sum += carry; // if we have a carry we have to add it
+            carry = sum/10; // if we get carry, divide by 10 to get it
+            curr->next = new ListNode(sum % 10); // the value to add to our list will be the sum % 10
+            curr = curr->next; // move to the next node
         }
-    };
+        return ans->next;
+    }
+};
