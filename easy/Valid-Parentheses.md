@@ -23,21 +23,22 @@ Time Complexity: O(n)
 
 ## Code
 #### C++
-    class Solution {
-    public:
-        bool isValid(string s) {
-            stack<char> opening;
-            for(char c : s) {
-                if(c == '(' || c == '{' || c == '[') {
-                    opening.push(c);
-                } else {
-                    if(opening.empty() ||
-                        (c == ')' && opening.top() != '(') ||
-                        (c == '}' && opening.top() != '{') ||
-                        (c == ']' && opening.top() != '[')) return false;
-                    opening.pop();
-                }
+```c++
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> opening;
+        for(char c : s) {
+            if(c == '(' || c == '{' || c == '[') {
+                opening.push(c);
+            } else {
+                if(opening.empty() ||
+                    (c == ')' && opening.top() != '(') ||
+                    (c == '}' && opening.top() != '{') ||
+                    (c == ']' && opening.top() != '[')) return false;
+                opening.pop();
             }
-            return opening.empty();
         }
-    };
+        return opening.empty();
+    }
+};

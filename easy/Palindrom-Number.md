@@ -20,18 +20,18 @@ Time complexity: O(n)
 
 ## Code
 #### C++:
-    class Solution {
-    public:
-        bool isPalindrome(int x) {
-            if(x<0) return false;
-            long temp = x;
-            long check = 0;
-            while(temp>0) {
-                check *= 10;
-                check += temp%10;
-
-                temp /= 10;
-            }
-            return check == x;
+```c++
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x<0) return false;
+        long temp = x;
+        long check = 0;
+        while(temp>0) {
+            check *= 10;
+            check += temp%10;
+            temp /= 10;
         }
-    };
+        return check == x;
+    }
+};

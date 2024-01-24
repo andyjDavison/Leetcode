@@ -20,10 +20,11 @@ Time Complexity: O(1)
 
 ## Code
 #### C++
-    class Solution {
-    public:
-        int strStr(string haystack, string needle) {
-            if(haystack.length() < needle.length()) return -1;
-            return haystack.find(needle);
-        }
-    };
+```c++
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if(haystack.length() < needle.length()) return -1;
+        return haystack.find(needle);
+    }
+};

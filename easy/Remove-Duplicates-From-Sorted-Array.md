@@ -1,4 +1,4 @@
-# Title
+# Remove Duplicates From Sorted Array
 <https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/>
 
 ## Description
@@ -39,16 +39,17 @@ Time Complexity: O(n)
 
 ## Code
 #### C++
-    class Solution {
-    public:
-        int removeDuplicates(vector<int>& nums) {
-            int dupes = 1;
-            for(int i=1;i<nums.size();i++) {
-                if(nums[i] != nums[i-1]) {
-                    nums[dupes] = nums[i];
-                    dupes++;
-                }
+```c++
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int dupes = 1;
+        for(int i=1;i<nums.size();i++) {
+            if(nums[i] != nums[i-1]) {
+                nums[dupes] = nums[i];
+                dupes++;
             }
-            return dupes;
         }
-    };
+        return dupes;
+    }
+};
